@@ -1,0 +1,23 @@
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.headlineSmall {
+  font-size: 18px;
+  margin: 0;
+}
+
+.justParagraph {
+  margin-top: 5px;
+  font-size: 16px;
+}
