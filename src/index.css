@@ -23,7 +23,7 @@ ul {
   padding: 0;
 }
 
-li:hover,
+a:hover,
 :focus {
   color: #3488db;
 }
