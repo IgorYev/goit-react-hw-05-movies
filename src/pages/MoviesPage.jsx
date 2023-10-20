@@ -6,10 +6,9 @@ import { MovieList, MovieLi } from './Home.styled';
 import { findMovies } from '../components/Services/api';
 
 const Movies = () => {
-  const [searchQuery, setSearchQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const location = useLocation();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const fetchMoviesByQuery = async query => {
     try {
@@ -21,8 +20,7 @@ const Movies = () => {
   };
 
   useEffect(() => {
-    const query = searchParams.get('searchQuery') || '';
-    setSearchQuery(query);
+    const query = searchParams.get('query') || '';
     if (query) {
       fetchMoviesByQuery(query);
     }
@@ -30,14 +28,13 @@ const Movies = () => {
 
   const handleSearchSubmit = query => {
     if (query) {
-      setSearchQuery(query);
-      fetchMoviesByQuery(query);
+      setSearchParams({ query });
     }
   };
 
   return (
     <div>
-      <SearchBar value={searchQuery} onSubmit={handleSearchSubmit} />
+      <SearchBar onSubmit={handleSearchSubmit} />
       <MovieList>
         {movies.map(({ id, title }) => (
           <MovieLi key={id}>
